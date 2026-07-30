@@ -126,12 +126,17 @@ O projeto tem como finalidade aplicar conceitos de:
 
 ---
 
-## 👨‍💻 Desenvolvedor
+## 👨‍💻 Desenvolvedores
 
 **Pedro Roque**
 
 GitHub:  
 https://github.com/PedroRoque5
+
+**Giovanna Moysés**
+
+GitHub:
+https://github.com/GigiMoyses005
 
 ---
 
