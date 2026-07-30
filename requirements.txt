@@ -1,0 +1,265 @@
+# 🛡️ TaskGuardian
+
+TaskGuardian é um monitor de desempenho do computador desenvolvido em **Python**, utilizando a biblioteca **CustomTkinter** para fornecer uma interface gráfica moderna e intuitiva.
+
+O projeto foi desenvolvido como **projeto acadêmico** durante o curso de **Assistente de Tecnologias da Informação**, ministrado pelo **Instituto Senac Ourinhos**.
+
+Seu principal objetivo é permitir que usuários leigos monitorem o desempenho do computador de maneira simples, sem a necessidade de conhecimentos técnicos sobre hardware.
+
+---
+
+# 📌 Funcionalidades
+
+- 📊 Monitoramento do uso da CPU
+- 💾 Monitoramento da Memória RAM
+- 💽 Monitoramento do Espaço em Disco
+- 📋 Listagem de processos em execução
+- ⚡ Atualização das informações em tempo real
+- 🛡️ Diagnóstico simplificado do computador
+- 🖥️ Interface moderna e intuitiva
+- 🪟 Compatível com Windows
+- 🐧 Compatível com Linux
+
+---
+
+# 🛠️ Tecnologias Utilizadas
+
+- Python 3
+- CustomTkinter
+- Psutil
+- Pillow
+- PyInstaller
+
+---
+
+# 📋 Requisitos
+
+- Python 3.10 ou superior
+- Pip
+- Git
+
+---
+
+# 🚀 Instalação
+
+## 1. Clone o repositório
+
+```bash
+git clone https://github.com/PedroRoque5/teskGuardian.git
+```
+
+Entre na pasta do projeto.
+
+```bash
+cd teskGuardian
+```
+
+---
+
+# 🪟 Instalação no Windows
+
+## Verifique se o Python está instalado
+
+```bash
+python --version
+```
+
+Caso não esteja instalado:
+
+https://www.python.org/downloads/
+
+Durante a instalação marque:
+
+> ✅ Add Python to PATH
+
+---
+
+## Atualize o pip
+
+```bash
+python -m pip install --upgrade pip
+```
+
+---
+
+## Instale as dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Execute o projeto
+
+```bash
+python main.py
+```
+
+---
+
+# 🐧 Instalação no Linux (Ubuntu/Debian)
+
+Atualize os pacotes:
+
+```bash
+sudo apt update
+```
+
+Instale Python, Pip e Tkinter:
+
+```bash
+sudo apt install python3 python3-pip python3-tk git
+```
+
+Atualize o pip:
+
+```bash
+python3 -m pip install --upgrade pip --break-system-packages
+```
+
+Instale todas as dependências:
+
+```bash
+pip install -r requirements.txt --break-system-packages
+```
+
+Execute o projeto:
+
+```bash
+python3 main.py
+```
+
+---
+
+# 📦 Dependências
+
+O arquivo **requirements.txt** contém:
+
+```text
+customtkinter
+psutil
+Pillow
+pyinstaller
+```
+
+Instalação manual:
+
+### Windows
+
+```bash
+pip install customtkinter psutil pillow pyinstaller
+```
+
+### Linux
+
+```bash
+pip install customtkinter psutil pillow pyinstaller --break-system-packages
+```
+
+---
+
+# 📁 Estrutura do Projeto
+
+```
+teskGuardian/
+│
+├── assets/
+│   ├── icons/
+│   ├── images/
+│
+├── main.py
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
+
+# ▶️ Como Executar
+
+### Windows
+
+```bash
+python main.py
+```
+
+### Linux
+
+```bash
+python3 main.py
+```
+
+---
+
+# 📦 Gerando o Executável
+
+## Windows
+
+```bash
+pyinstaller --onefile --windowed main.py
+```
+
+O executável será criado na pasta:
+
+```
+dist/
+```
+
+---
+
+## Linux
+
+```bash
+pyinstaller --onefile main.py
+```
+
+---
+
+# 🎯 Objetivo
+
+O TaskGuardian busca facilitar o monitoramento do computador por usuários que possuem pouco ou nenhum conhecimento técnico.
+
+Ao invés de apresentar apenas números e porcentagens, o sistema interpreta as informações e fornece recomendações simples para melhorar o desempenho da máquina.
+
+---
+
+# 🚀 Funcionalidades Futuras
+
+- [ ] Monitoramento da GPU
+- [ ] Monitoramento de temperatura
+- [ ] Histórico de utilização
+- [ ] Gráficos em tempo real
+- [ ] Sistema de notificações
+- [ ] Exportação de relatórios
+- [ ] Tema escuro/claro
+- [ ] Inicialização automática junto ao sistema operacional
+
+---
+
+# 👨‍💻 Desenvolvedor
+
+**Pedro Roque**
+
+GitHub:
+
+https://github.com/PedroRoque5
+
+---
+
+# 🎓 Projeto Acadêmico
+
+Este projeto foi desenvolvido durante o curso de **Assistente de Tecnologias da Informação** do **Instituto Senac Ourinhos**, com o objetivo de aplicar conhecimentos em:
+
+- Desenvolvimento de aplicações desktop;
+- Programação em Python;
+- Interfaces gráficas com CustomTkinter;
+- Monitoramento de recursos do sistema operacional;
+- Utilização de Git e GitHub para versionamento;
+- Organização e documentação de projetos.
+
+---
+
+# 📄 Licença
+
+Este projeto possui finalidade exclusivamente educacional e de portfólio.

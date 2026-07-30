@@ -70,14 +70,14 @@ corner_radius=15
 )
 btn_inicio.pack(pady=10)
 
-status = ctk.CTkFrame(
-conteudo,
-fg_color="#E8F9E7",
-corner_radius=20,
-height=170
-)
-status.pack(fill="x")
-status.pack_propagate(False)
+#status = ctk.CTkFrame(
+#conteudo,
+#fg_color="#E8F9E7",
+#corner_radius=20,
+#height=170
+#)
+#status.pack(fill="x")
+#status.pack_propagate(False)
 
 status = ctk.CTkLabel(
 	janela,
