@@ -60,7 +60,7 @@ logo_label.pack(pady=(20,5))
 
 btn_inicio = ctk.CTkButton(
 menu,
-text="Página Inicial",
+text="🏠 Página Inicial",
 width=240,
 height=45,
 corner_radius=15
@@ -70,7 +70,7 @@ btn_inicio.pack(pady=10)
 
 btn_inicio = ctk.CTkButton(
 menu,
-text="Desempenho",
+text="📈 Desempenho",
 width=240,
 height=45,
 corner_radius=15
@@ -79,7 +79,7 @@ btn_inicio.pack(pady=10)
 
 btn_inicio = ctk.CTkButton(
 menu,
-text="Configurações",
+text="⚙ Configurações",
 width=240,
 height=45,
 corner_radius=15
