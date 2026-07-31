@@ -44,11 +44,19 @@ expand=True
 
 )
 
-titulo = ctk.CTkLabel(
-	menu,
-	text="TaskGuardian",
-	font=("Arial",30,"bold"))
-titulo.pack(pady=(20,5))
+logo = ctk.CTkImage(
+    light_image=Image.open("assets/images/logo.png"),
+    dark_image=Image.open("assets/images/logo.png"),
+    size=(80, 80)
+)
+
+logo_label = ctk.CTkLabel(
+    menu,
+    image=logo,
+    text=""
+)
+
+logo_label.pack(pady=(20,5))
 
 btn_inicio = ctk.CTkButton(
 menu,
@@ -57,6 +65,7 @@ width=240,
 height=45,
 corner_radius=15
 )
+
 btn_inicio.pack(pady=10)
 
 btn_inicio = ctk.CTkButton(
@@ -75,7 +84,10 @@ width=240,
 height=45,
 corner_radius=15
 )
+
 btn_inicio.pack(pady=10)
+
+
 
 #status = ctk.CTkFrame(
 #conteudo,
@@ -140,6 +152,69 @@ cards_frame = ctk.CTkFrame(
 )
 
 cards_frame.pack(pady=30)
+
+titulo_processos = ctk.CTkLabel(
+    conteudo,
+    text="Gerenciador de Tarefas",
+    font=("Arial", 22, "bold")
+)
+
+titulo_processos.pack(anchor="w", padx=20, pady=(30,10))
+
+tabela = ctk.CTkTextbox(
+    conteudo,
+    width=1100,
+    height=250,
+    font=("Consolas", 14)
+)
+
+tabela.pack(fill="x", padx=20, pady=(0,20))
+
+def listar_processos():
+
+    tabela.delete("1.0", "end")
+
+    tabela.insert(
+        "end",
+        f"{'Processo':30}{'PID':10}{'CPU%':10}{'RAM(MB)':10}\n"
+    )
+
+    tabela.insert(
+        "end",
+        "-" * 70 + "\n"
+    )
+
+    processos = []
+
+    for proc in psutil.process_iter(
+        ['pid', 'name', 'memory_info']
+    ):
+
+        try:
+
+            cpu = proc.cpu_percent()
+
+            memoria = proc.info['memory_info'].rss / (1024*1024)
+
+            processos.append((
+                cpu,
+                proc.info['name'],
+                proc.info['pid'],
+                memoria
+            ))
+
+        except:
+
+            pass
+
+    processos.sort(reverse=True)
+
+    for cpu, nome, pid, memoria in processos[:15]:
+
+        tabela.insert(
+            "end",
+            f"{nome[:28]:30}{pid:<10}{cpu:<10.0f}{memoria:<10.0f}\n"
+        )
 
 def criar_card(titulo):
     frame = ctk.CTkFrame(
@@ -225,6 +300,8 @@ def atualizar():
     disco_label.configure(text=f"{disco:.0f}%")
     disco_bar.set(disco/100)
     disco_status.configure(text=obter_status(disco))
+
+    listar_processos()
 
     try:
         gpus = GPUtil.getGPUs()
