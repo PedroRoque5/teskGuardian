@@ -94,9 +94,56 @@ status = ctk.CTkLabel(
 
 status.pack()
 
+cabecalho = ctk.CTkFrame(
+    conteudo,
+    height=190,
+    corner_radius=15,
+    fg_color="white"
+)
+
+cabecalho.pack(fill="x", padx=20, pady=(20,10))
+cabecalho.pack_propagate(False)
+
+so = platform.system() + " " + platform.release()
+cpu_nome = platform.processor()
+ram_total = round(psutil.virtual_memory().total / (1024**3), 1)
+arquitetura = platform.architecture()[0]
+hostname = platform.node()
+
+titulo_sistema = ctk.CTkLabel(
+    cabecalho,
+    text="Informações do Sistema",
+    font=("Arial",28,"bold")
+)
+
+titulo_sistema.pack(anchor="w", padx=20, pady=(10,5))
+
+info = ctk.CTkLabel(
+    cabecalho,
+    justify="left",
+    anchor="w",
+    font=("Arial",15),
+    text=f"""
+    💻 Computador: {hostname}
+    🖥 Sistema Operacional: {so}
+    ⚙ Processador: {cpu_nome}
+    🧠 Memória RAM Instalada: {ram_total} GB
+    📦 Arquitetura: {arquitetura}
+    """
+)
+
+info.pack(anchor="w", padx=20)
+
+cards_frame = ctk.CTkFrame(
+    conteudo,
+    fg_color="transparent"
+)
+
+cards_frame.pack(pady=30)
+
 def criar_card(titulo):
     frame = ctk.CTkFrame(
-        conteudo,
+        cards_frame,
         width=250,
         height=200,
         corner_radius=20
@@ -131,10 +178,10 @@ def criar_card(titulo):
 
     return frame, valor_label, barra, status
 
-card_memoria, memoria_label, memoria_bar, memoria_status = criar_card("Memória")
-card_cpu, cpu_label, cpu_bar, cpu_status = criar_card("CPU")
-card_gpu, gpu_label, gpu_bar, gpu_status = criar_card("GPU")
-card_disco, disco_label, disco_bar, disco_status = criar_card("Espaço em Disco")
+card_memoria, memoria_label, memoria_bar, memoria_status = criar_card("💾 Memória")
+card_cpu, cpu_label, cpu_bar, cpu_status = criar_card("🖥️ CPU")
+card_gpu, gpu_label, gpu_bar, gpu_status = criar_card("🎮 GPU")
+card_disco, disco_label, disco_bar, disco_status = criar_card("📁 Disco")
 
 card_memoria.pack(side="left", padx=10, pady=10)
 card_cpu.pack(side="left", padx=10, pady=10)
@@ -200,41 +247,6 @@ def atualizar():
         gpu_status.configure(text="Não disponível")
 
     janela.after(1000, atualizar)
-
-def status_cpu(cpu):
-
-    if cpu < 50:
-        return "🟢 Bom"
-
-    elif cpu < 80:
-        return "🟡 Médio"
-
-    else:
-        return "🔴 Alto uso"
-
-def status_memoria(memoria):
-
-    if memoria < 60:
-        return "🟢 Normal"
-
-    elif memoria < 85:
-        return "🟡 Atenção"
-
-    else:
-        return "🔴 Memória quase cheia"
-    
-def status_disco(disco):
-
-    if disco < 70:
-        return "🟢 Espaço suficiente"
-
-    elif disco < 90:
-        return "🟡 Pouco espaço"
-
-    else:
-        return "🔴 Disco quase cheio"
-
-
     
 atualizar()
 
